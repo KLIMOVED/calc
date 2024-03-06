@@ -1,21 +1,21 @@
 class Calculation {
-    public static int calculate(int num1, int num2, char operation) throws IllegalArgumentException {
-        int result = 0;
+    public static int calculate(int num1, int num2, String operation) throws IllegalArgumentException {
+        int result;
         switch (operation) {
-            case '+':
+            case "+":
                 result = num1 + num2;
                 break;
-            case '-':
+            case "-":
                 result = num1 - num2;
                 break;
-            case '*':
+            case "*":
                 result = num1 * num2;
                 break;
-            case '/':
+            case "/":
                 result = num1 / num2;
                 break;
             default:
-                throw new IllegalArgumentException("//т.к введен оператор не удовлетворяющий заданию (+, -, /, *)");
+                throw new IllegalArgumentException("//т.к. введен оператор не удовлетворяющий заданию (+, -, /, *)");
         }
         return result;
     }

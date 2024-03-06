@@ -9,19 +9,19 @@ public class Main {
         String expression = console.nextLine();
         System.out.println("Output:");
         try {
-            System.out.println(calc(expression));
+        System.out.println(calc(expression));
         } catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage());
+            System.out.println("throws Exception " + e.getMessage());
         }
         console.close();
     }
 
     public static String calc(String input) throws IllegalArgumentException {
 
-        int num1 = 0;
-        int num2 = 0;
-        int res = 0;
-        String result = null;
+        int num1;
+        int num2;
+        int res;
+        String result;
 
         String[] symbols = input.split(" ");
         if (symbols.length > 3) {
@@ -37,14 +37,16 @@ public class Main {
             throw new IllegalArgumentException("//т.к. используются одновременно разные системы счисления");
         }
 
-        String cha = symbols[1];
-        char[] x = cha.toCharArray();
-        char operation = x[0];
-        if (num1 == 0 || num2 == 0) {
-            num1 = Integer.parseInt(symbols[0]);
-            num2 = Integer.parseInt(symbols[2]);
+        String operation = symbols[1];
+        if (num1 == 0) {
+            try {
+                num1 = Integer.parseInt(symbols[0]);
+                num2 = Integer.parseInt(symbols[2]);
+            } catch (NumberFormatException e) {
+                throw new IllegalArgumentException("//т.к. калькулятор умеет работать только с целыми числами");
+            }
             if (num1 > 10 || num2 > 10 || num1 < 1 || num2 < 1) {
-                throw new IllegalArgumentException("Калькулятор умеет работать только с арабскими или римскими цифрами от 1 до 10 одновременно!");
+                throw new IllegalArgumentException("//т.к. калькулятор умеет работать только с арабскими или римскими цифрами от 1 до 10 одновременно");
             }
             result = Integer.toString(Calculation.calculate(num1, num2, operation));
         } else {

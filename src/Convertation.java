@@ -11,7 +11,6 @@ class Convertation {
                 "LXXX", "LXXXI", "LXXXII", "LXXXIII", "LXXXIV", "LXXXV", "LXXXVI", "LXXXVII", "LXXXVIII",
                 "LXXXIX", "XC", "XCI", "XCII", "XCIII", "XCIV", "XCV", "XCVI", "XCVII", "XCVIII", "XCIX", "C"
         };
-        String romanNumber = romanNumbers[arabNumber];
-        return romanNumber;
+        return romanNumbers[arabNumber];
     }
 }
